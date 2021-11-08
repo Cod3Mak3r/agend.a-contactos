@@ -12,8 +12,8 @@ target/
 .settings
 .springBeans
 .sts4-cache
-src/main/resources/static/images
-src/main/resources/application.properties
+/images
+application.properties
 
 
 ### IntelliJ IDEA ###
