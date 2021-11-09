@@ -9,9 +9,9 @@ import com.contactos.agenda.app.entities.Contacto;
 
 public interface IContactoService {
 	
-	public List<Contacto> listarUsuarios();
+	public List<Contacto> listarContactos();
 	public void guardarContacto(Contacto contacto);
 	public void eliminarContacto(Contacto contacto);
-	public Contacto editarContacto(Contacto contacto);
+	public Contacto buscarContacto(Contacto contacto);
 	
 }

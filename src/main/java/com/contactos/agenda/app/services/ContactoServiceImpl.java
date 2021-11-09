@@ -15,7 +15,7 @@ public class ContactoServiceImpl implements IContactoService {
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Contacto> listarUsuarios() {
+	public List<Contacto> listarContactos() {
 		return (List<Contacto>) personaDao.findAll();
 	}
 
@@ -33,7 +33,7 @@ public class ContactoServiceImpl implements IContactoService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Contacto editarContacto(Contacto contacto) {
+	public Contacto buscarContacto(Contacto contacto) {
 		return personaDao.findById(contacto.getIdContacto()).orElse(null);
 	}
 
