@@ -5,11 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.contactos.agenda.app.entities.Contacto;
 import com.contactos.agenda.app.services.IContactoService;
 
-@Controller
+@RestController
+@RequestMapping("/api/contactos/")
 public class ContactoControllerRest {
 	
 	private IContactoService contactoService;
