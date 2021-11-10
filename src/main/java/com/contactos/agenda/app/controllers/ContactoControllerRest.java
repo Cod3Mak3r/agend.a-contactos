@@ -1,5 +1,6 @@
 package com.contactos.agenda.app.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,10 @@ import com.contactos.agenda.app.entities.Contacto;
 import com.contactos.agenda.app.services.IContactoService;
 
 @RestController
-@RequestMapping("/api/contactos/")
+@RequestMapping("/api/contactos")
 public class ContactoControllerRest {
 	
+	@Autowired
 	private IContactoService contactoService;
 	
 	//Create a new contact
@@ -33,7 +35,7 @@ public class ContactoControllerRest {
 	public ResponseEntity<?> read(@PathVariable Long id){
 		var contactos = contactoService.buscarContacto(id);
 		 
-		if (contactos != null) {
+		if (contactos == null) {
 				return ResponseEntity.notFound().build();
 		}
 		

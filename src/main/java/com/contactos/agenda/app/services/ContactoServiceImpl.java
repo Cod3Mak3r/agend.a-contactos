@@ -2,6 +2,7 @@ package com.contactos.agenda.app.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.contactos.agenda.app.entities.Contacto;
 @Service
 public class ContactoServiceImpl implements IContactoService {
 
+	@Autowired
 	private IPersonaDao personaDao;
 	
 	@Override
