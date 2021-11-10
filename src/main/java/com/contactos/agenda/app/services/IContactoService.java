@@ -10,8 +10,8 @@ import com.contactos.agenda.app.entities.Contacto;
 public interface IContactoService {
 	
 	public List<Contacto> listarContactos();
-	public void guardarContacto(Contacto contacto);
+	public Contacto guardarContacto(Contacto contacto);
 	public void eliminarContacto(Contacto contacto);
-	public Contacto buscarContacto(Contacto contacto);
+	public Contacto buscarContacto(Long id);
 	
 }

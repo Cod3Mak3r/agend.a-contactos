@@ -21,8 +21,8 @@ public class ContactoServiceImpl implements IContactoService {
 
 	@Override
 	@Transactional
-	public void guardarContacto(Contacto contacto) {
-		personaDao.save(contacto);
+	public Contacto guardarContacto(Contacto contacto) {
+		return personaDao.save(contacto);
 	}
 
 	@Override
@@ -33,8 +33,8 @@ public class ContactoServiceImpl implements IContactoService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Contacto buscarContacto(Contacto contacto) {
-		return personaDao.findById(contacto.getIdContacto()).orElse(null);
+	public Contacto buscarContacto(Long id) {
+		return personaDao.findById(id).orElse(null);
 	}
 
 }

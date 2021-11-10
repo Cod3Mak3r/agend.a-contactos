@@ -1,10 +1,13 @@
 package com.contactos.agenda.app.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,37 +20,24 @@ public class ContactoControllerRest {
 	
 	private IContactoService contactoService;
 	
-	@GetMapping("/list")
-	public String listarContactos(Model model) {
-		var contactos = contactoService.listarContactos();
-		model.addAttribute("contactos", contactos);
-		return "list";
+	//Create a new contact
+	@PostMapping
+	public ResponseEntity<?> create(@RequestBody Contacto contacto){
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(contactoService.guardarContacto(contacto));
 	}
 	
-	@GetMapping("/form")
-	public String mostrarFormulario() {
-		return "form";
-	}
+	//Read an contact
 	
-	@PostMapping("/save")
-	public String guardarContacto(Contacto contacto) {
-		contactoService.guardarContacto(contacto);
-		return "redirect:/list";
-	}
-	
-	@GetMapping("/edit/{id}")
-	public String buscarContacto(@PathVariable(name="id") Long id  ,
-										Model model, Contacto contacto) {
-		var contactos = contactoService.buscarContacto(contacto);
-		model.addAttribute("contactos", contacto);
-		return "form";
-	}
-	
-	@GetMapping("/delete/{id}")
-	public String eliminarContacto(@PathVariable(name="id") Long id,
-													Contacto contacto) {
-		contactoService.eliminarContacto(contacto);
-		return "redirect:/list";
+	@GetMapping("/{id}")
+	public ResponseEntity<?> read(@PathVariable Long id){
+		var contactos = contactoService.buscarContacto(id);
+		 
+		if (contactos != null) {
+				return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(contactos);
 	}
 	
 	
