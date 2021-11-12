@@ -29,8 +29,8 @@ public class ContactoServiceImpl implements IContactoService {
 
 	@Override
 	@Transactional
-	public void eliminarContacto(Contacto contacto) {
-		personaDao.delete(contacto);
+	public void eliminarContacto(Long id) {
+		personaDao.deleteById(id);
 	}
 
 	@Override
