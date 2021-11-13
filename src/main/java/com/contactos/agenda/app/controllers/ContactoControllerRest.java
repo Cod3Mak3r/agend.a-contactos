@@ -41,7 +41,8 @@ public class ContactoControllerRest {
 	public ResponseEntity<Contacto> find(@PathVariable Long id){
 		var contacto = contactoService.buscarContacto(id);
 		 
-		if (contacto == null) {return ResponseEntity.notFound().build();}
+		if (contacto == null ) 
+		{return ResponseEntity.notFound().build();}
 		
 		return ResponseEntity.ok(contacto);
 	}
