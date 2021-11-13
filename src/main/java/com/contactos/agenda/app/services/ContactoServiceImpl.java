@@ -39,4 +39,10 @@ public class ContactoServiceImpl implements IContactoService {
 		return personaDao.findById(id).orElse(null);
 	}
 
+	@Override
+	@Transactional	
+	public Contacto actualizarContacto(Contacto contacto) {
+		return personaDao.save(contacto);
+	}
+
 }

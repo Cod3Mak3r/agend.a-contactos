@@ -13,5 +13,6 @@ public interface IContactoService {
 	public Contacto guardarContacto(Contacto contacto);
 	public void eliminarContacto(Long id);
 	public Contacto buscarContacto(Long id);
+	public Contacto actualizarContacto(Contacto contacto);
 	
 }
