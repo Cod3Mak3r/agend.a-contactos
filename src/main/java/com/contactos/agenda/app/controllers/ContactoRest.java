@@ -21,7 +21,7 @@ import com.contactos.agenda.app.services.IContactoService;
 
 @RestController
 @RequestMapping("/api/v1/contactos")
-public class ContactoControllerRest {
+public class ContactoRest {
 
 	@Autowired
 	private IContactoService contactoService;
