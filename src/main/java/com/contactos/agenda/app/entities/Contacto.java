@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="contactos")
@@ -17,10 +20,18 @@ public class Contacto implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long   idContacto;
+	@NotEmpty
+	@Size(min=3, max=10)
 	private String nombre;
+	@NotEmpty
+	@Size(min=3, max=15)
 	private String apellido;
+	@NotEmpty
+	@Size(min=9, max=11)
 	private String telefono;
+	@Email
 	private String email;
+	@Size(min=30, max=50)
 	private String mensaje;
 	
 	
